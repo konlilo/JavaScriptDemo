@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://whimsical.com/4oYtsHWjADWsieeNrjY1Xa">題目連結</a>
+    <br />
+    <label for="tempNum">溫度 : </label>
+    <input type="number" id="tempNum" />
+    <button onclick="tempFn()">偵測溫度</button>
+    <br />
+    <label for="score">成績 : </label>
+    <input type="number" id="score" />
+    <button onclick="scoreFn(score.value)">成績判定</button>
+  </body>
+  <script>
+    function tempFn() {
+      let temp = parseFloat(tempNum.value);
+      if (temp >= 37.5) {
+        alert(`${temp}度，不得進入`);
+      } else {
+        alert(`${temp}度，正常`);
+      }
+    }
+    function scoreFn(s) {
+      let score = parseInt(s);
+      if (score >= 80) {
+        alert(`${score}，優秀`);
+      } else if (score < 80 && score >= 60) {
+        alert(`${score}，普通`);
+      } else if (score < 60) {
+        alert(`${score}，不及格`);
+      } else {
+        alert(`${score}，無法判定 !!??`);
+      }
+    }
+  </script>
+</html>

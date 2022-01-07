@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="./img/腰圍測量.png" alt="" />
+  </body>
+  <script>
+    // if包if的練習
+    // 腰圍指數測量
+    // 男生腰圍大於90為過胖
+    // 女生要為大於80為過胖
+
+    let sex = "man";
+    let cm = 88;
+
+    if (sex == "man") {
+      if (cm > 90) {
+        console.log(`男生。腰圍: ${cm} 大於90，過胖! !`);
+      } else {
+        console.log(`男生。腰圍: ${cm} 小於90，正常! !`);
+      }
+    } else if (sex == "woman") {
+      if (cm > 90) {
+        console.log(`女生。腰圍: ${cm} 大於80，過胖! !`);
+      } else {
+        console.log(`腰圍: ${cm} 小於80，正常! !`);
+      }
+    } else {
+      console.log("女生。你的資料錯誤");
+    }
+  </script>
+</html>
