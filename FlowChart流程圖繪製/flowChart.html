@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="./flowChart.png" alt="" />
+  </body>
+  <script>
+    //   小華想出門，但他不確定自己的錢包有多少錢
+
+    // 於是他想打開錢包看看還有多少錢
+
+    // 如果小華發現自己有100元，他就去吃80元牛肉麵
+
+    // 如果沒有100元，就不吃任何東西，不出門
+
+    // 最後小華還想計算自己最後剩下多少錢
+
+    let wallet = 0;
+    wallet += 130;
+
+    if (wallet >= 100) {
+      wallet -= 80;
+    } else {
+      wallet -= 0;
+    }
+    console.log(`小華錢包還有${wallet}元`);
+  </script>
+</html>
