@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let home = {
+      motherName: "Mary",
+      fatherName: "Tom",
+      dogs: 3,
+      isWakeUP: false,
+    };
+
+    // 刪除 物件屬性
+    delete home.dogs;
+    delete home.motherName;
+    console.log(home);
+
+    console.log(home.dogs); //查無屬性時，顯示undefined
+  </script>
+</html>

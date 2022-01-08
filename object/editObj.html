@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let home = {
+      mother: "mary",
+      father: "John",
+      dogs: 2,
+      isWakeUp: false,
+    };
+
+    home.mother = "Amy";
+    home.dogs += 1;
+    console.log(home);
+
+    home["dogs"] = home["dogs"] + 1;
+    home["dogs"] += 1;
+    console.log("home.dogs: ", home.dogs);
+  </script>
+</html>
