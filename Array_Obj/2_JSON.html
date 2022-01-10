@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="./json/電動車資訊.js"></script>
+  <!-- console.log(jsonElcPower); -->
+  <script src="./json/臺中市家庭暴力被害人保護扶助人次_JSON.js"></script>
+  <!-- console.log(jsonProtect); -->
+  <script src="./json/臺中市違反職業安全衛生法之違法雇主資料名單.js"></script>
+  <!-- console.log(jsonFuckBoss); -->
+  <script src="./json/公告資料.js"></script>
+  <script>
+    console.log(jsonElcPower[3].Address);
+    console.log("----------------");
+    console.log(jsonProtect.ROOT.RECORD[0].PlaceNo);
+    console.log("----------------");
+    console.log(jsonFuckBoss[5].處分字號);
+    console.log("----------------");
+    console.log(boardJson.entries[5].title);
+  </script>
+</html>

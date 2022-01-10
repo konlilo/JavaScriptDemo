@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="https://github.com/hexschool/nodejs_ajax_tutorial">API</a>
+    <div class="list"></div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    let reqData = {
+      email: "lovef2e@hexschool.com",
+      password: "12345678",
+    };
+    let data = "";
+    axios
+      .post("https://hexschool-tutorial.herokuapp.com/api/signup", reqData)
+      .then((res) => {
+        console.log(res);
+        data = res.data.message;
+        readData();
+      });
+
+    function readData() {
+      let list = document.querySelector(".list");
+      list.innerText = data;
+    }
+  </script>
+</html>

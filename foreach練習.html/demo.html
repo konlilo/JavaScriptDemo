@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>新增資料</h1>
+    <input type="text" id="shopName" />
+    <select name="" id="charge">
+      <option value="免費">免費</option>
+      <option value="投幣式">投幣式</option>
+    </select>
+    <button onclick="insertFn()">儲存</button>
+
+    <h1>資料顯示</h1>
+    <button onclick="allFn()">全部</button>
+    <button onclick="freeFn()">免費</button>
+    <button onclick="paidFn()">投幣式</button>
+    <ul id="ulElement"></ul>
+  </body>
+  <script>
+    let shop = [
+      { name: "111充電站", charge: "免費" },
+      { name: "222充電站", charge: "免費" },
+      { name: "333充電站", charge: "投幣式" },
+      { name: "444充電站", charge: "免費" },
+      { name: "555充電站", charge: "投幣式" },
+    ];
+
+    allFn();
+
+    function allFn() {
+      ulElement.innerHTML = "";
+
+      shop.forEach((item, index, arr) => {
+        ulElement.innerHTML += `<li>${item.name}，${item.charge}</li>`;
+      });
+    }
+
+    function freeFn() {
+      ulElement.innerHTML = "";
+      shop.forEach((item, index, arr) => {
+        if (item.charge == "投幣式") {
+          ulElement.innerHTML += `<li>${item.name}，${item.charge}</li>`;
+        }
+      });
+    }
+
+    function paidFn() {
+      ulElement.innerHTML = "";
+      shop.forEach((item, index, arr) => {
+        if (item.charge == "免費") {
+          ulElement.innerHTML += `<li>${item.name}，${item.charge}</li>`;
+        }
+      });
+    }
+
+    function insertFn() {
+      let temp = {};
+      temp.name = shopName.value;
+      temp.charge = charge.value;
+      shop.push(temp);
+      temp = {};
+
+      ulElement.innerHTML = "";
+      shop.forEach((item, index, arr) => {
+        ulElement.innerHTML += `<li>${item.name}，${item.charge}</li>`;
+      });
+    }
+  </script>
+</html>

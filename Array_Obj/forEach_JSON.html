@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script src="./json/電動車資訊.js"></script>
+  <script>
+    let total = {
+      free: [],
+      paid: [],
+      freeNum: 0,
+      paidNum: 0,
+    };
+
+    jsonElcPower.forEach((item, index, arr) => {
+      //   console.log(item.Charge);
+      if (item.Charge == "免費") {
+        total.free.push(item);
+        total.freeNum += 1;
+      } else if (item.Charge == "投幣式") {
+        total.paid.push(item);
+        total.paidNum += 1;
+      }
+    });
+
+    console.log(total);
+  </script>
+</html>

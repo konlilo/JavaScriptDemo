@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>四種常見的 POST 請求 content-type 介紹</title>
+  </head>
+  <body>
+    <h3>請求資料格式 request header Content-Type</h3>
+    <p>1.application/x-www-form-urlencoded</p>
+    <!-- 1.ex.form 表單為application/x-www-form-urlencoded 格式 -->
+    <p>2.application/json</p>
+    <!-- 2.為json 格式 ,axios 預設為json格式編譯 -->
+    <p>3.multipart/form-data</p>
+    <!-- 3.傳送檔案格式ex.pdf、png、jpg等圖檔 。需使用 multipart/form-data 格式 -->
+    <p>4.text/pain</p>
+    <!-- 4.記事本格式 -->
+    <br />
+    <a href="https://github.com/hexschool/nodejs_ajax_tutorial">API</a>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  <script>
+    let reqData = {
+      email: "lovef2e@hexschool.com",
+      password: "12345678",
+    };
+
+    axios({
+      method: "post",
+      url: "https://hexschool-tutorial.herokuapp.com/api/signup",
+      data: reqData,
+      headers: {
+        "Content-Type": "application/json", // axios 預設
+        //   "Content-Type": "application/x-www-form-urlencoded" ,
+        //   "Content-Type": "multipart/form-data" ,
+        //   "Content-Type": "text/pain" ,
+      },
+    })
+      .then(function (res) {
+        //handle success
+        console.log(res);
+      })
+      .catch(function (err) {
+        //handle error
+        console.log(err);
+      });
+
+    // axios
+    //   .post("/user", {
+    //     firstName: "Fred",
+    //     lastName: "Flintstone",
+    //   })
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
+  </script>
+</html>
