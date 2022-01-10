@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" class="txt" placeholder="請輸入代辦事項" />
+    <input type="button" class="save" value="儲存代辦" />
+    <ul class="list"></ul>
+  </body>
+  <script>
+    const txt = document.querySelector(".txt");
+    const save = document.querySelector(".save");
+    const list = document.querySelector(".list");
+
+    let data = [{ content: "今天要洗臉" }, { content: "今天要刷牙" }];
+
+    function renderData() {
+      let str = "";
+      data.forEach((item, index) => {
+        str += ` <li>
+        ${item.content}
+        <input type="button" data-num="${index}" class="delete" value="刪除代辦" />
+      </li>`;
+      });
+      list.innerHTML = str;
+    }
+
+    renderData();
+
+    // 新增代辦
+    save.addEventListener("click", (e) => {
+      if (txt.value == "") {
+        alert("請輸入內容");
+        return;
+      }
+
+      let temp = {};
+      temp.content = txt.value;
+      data.push(temp);
+      txt.value = "";
+      temp = {};
+      renderData();
+    });
+
+    // 刪除代辦
+    list.addEventListener("click", (e) => {
+      if (e.target.getAttribute("class") !== "delete") {
+        console.log("沒有點到del按鈕~~~~");
+        return; //返回中斷程式碼，避免往下執行。
+      }
+      console.log("點到了 del 按鈕 ! ! !");
+      let num = e.target.getAttribute("data-num");
+      data.splice(num, 1);
+      renderData();
+    });
+  </script>
+</html>
