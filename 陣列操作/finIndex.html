@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>JS findIndex 尋找索引編號</h2>
+    <p>ex.訂單編號</p>
+  </body>
+  <script>
+    const colors = ["red", "green", "blue", "black"];
+    const blueIndex = colors.findIndex((item, index, arr) => {
+      return item == "blue";
+    });
+    console.log("colors: ", colors);
+    console.log("blueIndex: ", blueIndex);
+
+    //訂單編號
+    const orders = [
+      { name: "小王", orderID: "00011" },
+      { name: "小名", orderID: "00026" },
+      { name: "小華", orderID: "00037" },
+      { name: "小每", orderID: "00043" },
+    ];
+
+    const smallCID = orders.findIndex((item, index, arr) => {
+      return item.orderID == "00026";
+    });
+    console.log(smallCID);
+    console.log(`這個訂單編號是${orders[smallCID].name}的!!!`);
+  </script>
+</html>

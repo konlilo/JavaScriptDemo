@@ -1,0 +1,146 @@
+一.安裝webpack 在開發測試環境
+
+終端機視窗輸入 :
+1. npm i webpack --save-dev 
+2. npm i webpack-cli --save-dev
+以上兩行可打成一行: npm i webpack webpack-cli --save-dev
+
+---------------------------------------------------------
+二.進入與輸出
+
+進入點(entry) : src/index.js
+輸出(output) : dist
+需在 package.json 裡加入 "scripts":{"build":"webpack" } ， 
+並在cmd 執行npm run build 。 之後會再dist裡出現main.js 
+#輸出後的main.js 為壓縮格式，不易除錯。
+##相對的別人也會只用webpack打包，可只用webpack反向解開修改包裝
+---------------------------------------------------------
+三.環境客製化 webpack.config.js 
+新增 webpack.config.js 
+
+貼入以下程式碼 :
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+const path = require("path");
+module.exports = {
+  entry: "./src/index.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "bundle.js",
+  },
+};
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+相對入徑轉絕對入徑 (跨環境好用):path.resolve();
+當前入徑: __dirname
+
+四.客製化 package.json  script
+在script: 可加入 其他 執行程式碼
+
+五. package.json  script
+ "scripts":{
+          "dev":"webpack --mode development", 
+          "deploy": "webpack --mode production" 
+  }
+  開發模式(log,錯誤顯示得比較詳細): webpack --mode development
+  上限模式(程式碼精簡，盡量壓縮成一行): webpack --mode production 
+
+六.JS 模組化 ESmodule
+
+七.  載入 CSS-loader 流程
+CSS-loader文件: https://github.com/webpack-contrib/css-loader
+
+1.安裝套件: 
+npm install --save-dev css-loader style-loader
+
+
+2. webpack.config.js 檔案貼上以下程式碼
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+    ],
+  },
+};
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3.即可 在進入點import css (ex. import css from 'style.css')
+
+-----------------------------------------------------------------
+八.Sass-loader
+
+1.安裝套件:
+  npm install sass-loader node-sass --save-dev
+2.webpack.config.js 檔案貼上以下程式碼
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+    ],
+  },
+};
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+3.即可 在進入點import scss (ex.  import css from 'style.css')
+-----------------------------------------------------------------
+九.安裝 DevServer (類似liveServer 自動更新編譯)
+webpack 官網文件: https://webpack.js.org/configuration/dev-server/
+webpack server GitHub 文件: https://github.com/webpack/webpack-dev-server
+
+1.安裝套件: npm install webpack-dev-server --save-dev
+
+2.package.json script修改
+{
+  "scripts": {
+    "dev": "webpack serve --mode development",
+    "deploy": "webpack serve --mode production",
+  }
+}
+
+3.webpack.config.js 加入以下程式碼:
+
+contentBase: 輸出路徑
+compress: 是否壓縮
+port: port號
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+由於 dev server 版本更新（v3 -> v4）因此設定方式的寫法也有些差異
+
+v3 版本寫法
+
+devServer: {
+    contentBase: path.join(__dirname, "dist"),
+    compress: true,
+    port:9000,
+    open:true,
+
+}
+v4 版本寫法：
+
+devServer: {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+    },
+      compress: true,
+      port:9000,
+      open:true,
+}
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+4.將執行  npm run dev
+
+------------------------------------
+十.import axios 套件
+官網: https://www.npmjs.com/package/axios
+1.安裝: npm install axios
+2.在進入點 import axios form "axios"
+3.即可使用

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>JS array find</h2>
+    <p>不會引響到原陣列</p>
+    <p>跟filter相似，但只找出一筆，回傳單一</p>
+    <p>ex.比價、下拉式 選擇 鄉鎮市區</p>
+  </body>
+  <script>
+    const arr = [1, 2, 3, 5, 10, 20, 30, 50];
+    const newArr = arr.find((item, index, arr) => {
+      return item > 10;
+    });
+    console.log("arr: ", arr);
+    console.log("newArr: ", newArr);
+
+    // 分數
+    const scoreData = [
+      { name: "小名", score: 30 },
+      { name: "小王", score: 80 },
+      { name: "小氣", score: 50 },
+      { name: "小阿", score: 90 },
+    ];
+
+    const filterScore = scoreData.find((item, index, arr) => {
+      return item.score >= 60;
+    });
+
+    console.log("score: ", scoreData);
+    console.log("filterScore: ", filterScore); //回傳物件一筆
+  </script>
+</html>

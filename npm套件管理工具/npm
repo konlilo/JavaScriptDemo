@@ -1,0 +1,37 @@
+NPM:透過nodeJS所延伸開發出來的套件管理工具 
+
+npm官網: https://www.npmjs.com/
+
+LTS(長期支援):穩定版
+Current:最新版 Beta
+------------------------------------------------------
+
+確認是否安裝成功(確認版本號): cmd(終端機視窗) -> node -v 
+確認是否安裝成功(確認版本號): cmd(終端機視窗) -> npm -v 
+
+專案環境初始化: npm init
+
+---------------------------------------------------------
+安裝套件: npm install 套件名稱 
+mac 安裝套件: sudo install 套件名稱
+
+package.json 檔案底下 "dependencies":{"xxxxx":"yyyyy"} 會顯示你所安裝的套件名稱和版本號
+
+##只要有package.json 輸入 npm install 即可安裝 dependencies 底下的 套件
+
+全域空間: -g 
+ex. npm install bootstrap -g
+
+開發測試階段: --save-dev 
+ex. npm install webpack --save-dev
+(開發、測試套件出現在package.json裡的 "devDependencies":{"xxx":"yyy"} 底下) 
+
+上線階段(現在已預設 簡化成 npm install xxx): --save 
+
+(mac 前面加 sudo)
+安裝套件: npm install 套件名稱
+更新套件: npm update 套件名稱
+移除套件: npm uninstall 套件名稱
+
+如要刪除全域套件位置 後面加 -g
+ex. npm uninstall bootstrap -g
